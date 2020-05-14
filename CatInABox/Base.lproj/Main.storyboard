@@ -55,6 +55,70 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="112.5"/>
         </scene>
+        <!--Files Table View Controller-->
+        <scene sceneID="ka1-4h-eDJ">
+            <objects>
+                <tableViewController id="jec-fR-qLU" customClass="FilesTableViewController" customModule="CatInABox" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3gb-wv-2Hk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="130" id="cqO-Ve-2Fn" customClass="TableViewCell" customModule="CatInABox" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="130"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cqO-Ve-2Fn" id="B2m-56-kgU">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JSR-Al-qHh">
+                                            <rect key="frame" x="20" y="0.0" width="130" height="130"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="JSR-Al-qHh" secondAttribute="height" multiplier="1:1" id="M2f-2a-oXe"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Hd-NU-neW">
+                                            <rect key="frame" x="158" y="11" width="236" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last modified date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdg-3E-1nN">
+                                            <rect key="frame" x="158" y="101" width="236" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="7Hd-NU-neW" firstAttribute="leading" secondItem="JSR-Al-qHh" secondAttribute="trailing" constant="8" id="74d-gH-tW2"/>
+                                        <constraint firstItem="7Hd-NU-neW" firstAttribute="trailing" secondItem="B2m-56-kgU" secondAttribute="trailingMargin" id="AHH-cw-vaN"/>
+                                        <constraint firstItem="JSR-Al-qHh" firstAttribute="leading" secondItem="B2m-56-kgU" secondAttribute="leading" constant="20" id="Bcu-Wz-KxQ"/>
+                                        <constraint firstItem="cdg-3E-1nN" firstAttribute="trailing" secondItem="B2m-56-kgU" secondAttribute="trailingMargin" id="U0Q-6e-agz"/>
+                                        <constraint firstItem="cdg-3E-1nN" firstAttribute="leading" secondItem="JSR-Al-qHh" secondAttribute="trailing" constant="8" id="VYP-8M-h5V"/>
+                                        <constraint firstAttribute="bottom" secondItem="JSR-Al-qHh" secondAttribute="bottom" id="a7M-D6-xbe"/>
+                                        <constraint firstItem="JSR-Al-qHh" firstAttribute="top" secondItem="B2m-56-kgU" secondAttribute="top" id="aZX-k9-Jjd"/>
+                                        <constraint firstItem="cdg-3E-1nN" firstAttribute="bottom" secondItem="B2m-56-kgU" secondAttribute="bottomMargin" id="f0k-Lc-CYi"/>
+                                        <constraint firstItem="7Hd-NU-neW" firstAttribute="top" secondItem="B2m-56-kgU" secondAttribute="topMargin" id="iZR-ao-4L4"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageCell" destination="JSR-Al-qHh" id="sCo-sw-ey2"/>
+                                    <outlet property="lastModifiedDateLabel" destination="cdg-3E-1nN" id="vgd-5r-qIp"/>
+                                    <outlet property="nameLabel" destination="7Hd-NU-neW" id="X7z-6z-p4P"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jec-fR-qLU" id="ggn-Of-wg8"/>
+                            <outlet property="delegate" destination="jec-fR-qLU" id="Gcq-QX-lOv"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5aT-fb-zGc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021.7391304347827" y="112.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="CatInABox" width="306" height="306"/>

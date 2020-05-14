@@ -22,7 +22,14 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if DropboxClientsManager.authorizedClient != nil {
+            let nav = UINavigationController(rootViewController: FilesTableViewController())
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: false)
+        }
+    }
 
 }
 

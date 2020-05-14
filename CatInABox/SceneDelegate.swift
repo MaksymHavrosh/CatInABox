@@ -32,6 +32,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }
     }
+    
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        if DropboxClientsManager.authorizedClient != nil {
+            guard let mainVC = window?.rootViewController else { return }
+            let nav = UINavigationController(rootViewController: FilesTableViewController())
+            nav.modalPresentationStyle = .fullScreen
+            mainVC.present(nav, animated: false)
+        }
+    }
 
 }
 
