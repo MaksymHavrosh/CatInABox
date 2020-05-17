@@ -15,7 +15,8 @@
 		248C8E9D246D3BDF00D58E91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 248C8E9B246D3BDF00D58E91 /* LaunchScreen.storyboard */; };
 		248C8EA6246D5DD100D58E91 /* FilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C8EA5246D5DD100D58E91 /* FilesTableViewController.swift */; };
 		248C8EA8246D5E1F00D58E91 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C8EA7246D5E1F00D58E91 /* TableViewCell.swift */; };
-		248C8EAB246D6A1500D58E91 /* Entrie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C8EAA246D6A1500D58E91 /* Entrie.swift */; };
+		248C8EAB246D6A1500D58E91 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C8EAA246D6A1500D58E91 /* Entry.swift */; };
+		248C8EAE246D900100D58E91 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C8EAD246D900100D58E91 /* PhotoViewController.swift */; };
 		E833619FBAC45B35D2165505 /* Pods_CatInABox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C7B05C12C6F385510E785C /* Pods_CatInABox.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +32,8 @@
 		248C8E9E246D3BDF00D58E91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		248C8EA5246D5DD100D58E91 /* FilesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesTableViewController.swift; sourceTree = "<group>"; };
 		248C8EA7246D5E1F00D58E91 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		248C8EAA246D6A1500D58E91 /* Entrie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entrie.swift; sourceTree = "<group>"; };
+		248C8EAA246D6A1500D58E91 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		248C8EAD246D900100D58E91 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		84B87276D4226BBD7E92B1AF /* Pods-CatInABox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatInABox.debug.xcconfig"; path = "Target Support Files/Pods-CatInABox/Pods-CatInABox.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C7B05C12C6F385510E785C /* Pods_CatInABox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CatInABox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 			children = (
 				248C8E94246D3BDA00D58E91 /* LoginViewController.swift */,
 				248C8EA5246D5DD100D58E91 /* FilesTableViewController.swift */,
+				248C8EAD246D900100D58E91 /* PhotoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -111,7 +114,7 @@
 		248C8EAC246D6A3200D58E91 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				248C8EAA246D6A1500D58E91 /* Entrie.swift */,
+				248C8EAA246D6A1500D58E91 /* Entry.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -241,8 +244,9 @@
 			files = (
 				248C8EA8246D5E1F00D58E91 /* TableViewCell.swift in Sources */,
 				248C8E95246D3BDA00D58E91 /* LoginViewController.swift in Sources */,
-				248C8EAB246D6A1500D58E91 /* Entrie.swift in Sources */,
+				248C8EAB246D6A1500D58E91 /* Entry.swift in Sources */,
 				248C8E91246D3BDA00D58E91 /* AppDelegate.swift in Sources */,
+				248C8EAE246D900100D58E91 /* PhotoViewController.swift in Sources */,
 				248C8E93246D3BDA00D58E91 /* SceneDelegate.swift in Sources */,
 				248C8EA6246D5DD100D58E91 /* FilesTableViewController.swift in Sources */,
 			);

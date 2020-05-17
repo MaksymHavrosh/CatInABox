@@ -34,9 +34,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneWillEnterForeground(_ scene: UIScene) {
-        if DropboxClientsManager.authorizedClient != nil {
+        if DropboxClientsManager.authorizedClient == nil {
             guard let mainVC = window?.rootViewController else { return }
-            let nav = UINavigationController(rootViewController: FilesTableViewController())
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: String(describing: LoginViewController.self)) as LoginViewController
+            let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
             mainVC.present(nav, animated: false)
         }

@@ -12,6 +12,7 @@ import SwiftyDropbox
 class FilesTableViewController: UITableViewController {
     
     private var entries: [Files.Metadata]?
+    private var selectedEntry: Files.Metadata?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,37 +32,57 @@ class FilesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TableViewCell.self), for: indexPath) as! TableViewCell
         
         guard let entry = entries?[indexPath.row]  else { return UITableViewCell() }
         let entrieModel = Entrie(entrie: entry)
 
-        cell.textLabel?.text = entry.name
-        cell.detailTextLabel?.text = entrieModel.lastModifiedDate
+        cell.nameLabel.text = entry.name
+        cell.lastModifiedDateLabel?.text = entrieModel.lastModifiedDate
 
         if entry is Files.FolderMetadata {
-            cell.imageView?.image =  #imageLiteral(resourceName: "FolderIcon.png")
+            cell.imageCell?.image =  #imageLiteral(resourceName: "FolderIcon.png")
         }
 
         if entry is Files.FileMetadata {
 
             if entry.name.hasSuffix(".jpg") || entry.name.hasSuffix(".png") {
-                cell.imageView?.image =  #imageLiteral(resourceName: "ImageIcon.png")
+                cell.imageCell?.image =  #imageLiteral(resourceName: "ImageIcon.png")
             } else if entry.name.hasSuffix(".mp3") {
-                cell.imageView?.image =  #imageLiteral(resourceName: "AudioIcon.png")
+                cell.imageCell?.image =  #imageLiteral(resourceName: "AudioIcon.png")
             } else if entry.name.hasSuffix(".mp4") {
-                cell.imageView?.image =  #imageLiteral(resourceName: "VideoIcon.jpg")
+                cell.imageCell?.image =  #imageLiteral(resourceName: "VideoIcon.jpg")
             } else if entry.name.hasSuffix(".pdf") || entry.name.hasSuffix(".txt") {
-                cell.imageView?.image =  #imageLiteral(resourceName: "TextIcon.png")
+                cell.imageCell?.image =  #imageLiteral(resourceName: "TextIcon.png")
             } else {
-                cell.imageView?.image =  #imageLiteral(resourceName: "CatsAndMoon.jpg")
+                cell.imageCell?.image =  #imageLiteral(resourceName: "CatsAndMoon.jpg")
             }
         }
-        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TableViewCell.self), for: indexPath) as! TableViewCell
-//        cell.nameLabel.text = entry.name
-
         return cell
     }
+    
+    //MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PhotoViewController, let entry = selectedEntry {
+            vc.filename = entry.name
+        }
+    }
 
+}
+
+//MARK: - UITableViewDelegate
+
+extension FilesTableViewController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let entry = entries?[indexPath.row] else { return }
+        selectedEntry = entry
+        
+        if entry.name.hasSuffix(".jpg") || entry.name.hasSuffix(".png") {
+            self.performSegue(withIdentifier: "ShowImage", sender: nil)
+        }
+        
+    }
+    
 }
