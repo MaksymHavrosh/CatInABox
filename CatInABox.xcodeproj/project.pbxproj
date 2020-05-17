@@ -17,6 +17,7 @@
 		248C8EA8246D5E1F00D58E91 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C8EA7246D5E1F00D58E91 /* TableViewCell.swift */; };
 		248C8EAB246D6A1500D58E91 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C8EAA246D6A1500D58E91 /* Entry.swift */; };
 		248C8EAE246D900100D58E91 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C8EAD246D900100D58E91 /* PhotoViewController.swift */; };
+		24EBC38B2471A35800D26A7D /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EBC38A2471A35800D26A7D /* TextViewController.swift */; };
 		E833619FBAC45B35D2165505 /* Pods_CatInABox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C7B05C12C6F385510E785C /* Pods_CatInABox.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		248C8EA7246D5E1F00D58E91 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		248C8EAA246D6A1500D58E91 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		248C8EAD246D900100D58E91 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		24EBC38A2471A35800D26A7D /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		84B87276D4226BBD7E92B1AF /* Pods-CatInABox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CatInABox.debug.xcconfig"; path = "Target Support Files/Pods-CatInABox/Pods-CatInABox.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C7B05C12C6F385510E785C /* Pods_CatInABox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CatInABox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 				248C8E94246D3BDA00D58E91 /* LoginViewController.swift */,
 				248C8EA5246D5DD100D58E91 /* FilesTableViewController.swift */,
 				248C8EAD246D900100D58E91 /* PhotoViewController.swift */,
+				24EBC38A2471A35800D26A7D /* TextViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				248C8EAE246D900100D58E91 /* PhotoViewController.swift in Sources */,
 				248C8E93246D3BDA00D58E91 /* SceneDelegate.swift in Sources */,
 				248C8EA6246D5DD100D58E91 /* FilesTableViewController.swift in Sources */,
+				24EBC38B2471A35800D26A7D /* TextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

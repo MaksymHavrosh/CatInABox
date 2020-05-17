@@ -120,6 +120,7 @@
                     </tableView>
                     <connections>
                         <segue destination="sQT-K1-jIr" kind="show" identifier="ShowImage" id="bjd-c2-9qR"/>
+                        <segue destination="NJO-0L-AlT" kind="show" identifier="ShowText" id="pD7-6g-zVD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5aT-fb-zGc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -187,6 +188,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vm2-iQ-xgX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1928.985507246377" y="112.5"/>
+        </scene>
+        <!--Text View Controller-->
+        <scene sceneID="F3D-WI-Ey0">
+            <objects>
+                <viewController id="NJO-0L-AlT" customClass="TextViewController" customModule="CatInABox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LgQ-e6-DKg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVh-QT-z2X">
+                                <rect key="frame" x="20" y="20" width="250" height="30"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title=" Send​​ by​ ​email "/>
+                                <connections>
+                                    <action selector="sendByEmail:" destination="sQT-K1-jIr" eventType="touchUpInside" id="6Ut-b2-q14"/>
+                                    <action selector="sendByEmail:" destination="NJO-0L-AlT" eventType="touchUpInside" id="NOL-aw-3jv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="lqZ-78-7Db">
+                                <rect key="frame" x="290" y="20" width="104" height="24"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcl-bH-5cC" customClass="PDFView">
+                                <rect key="frame" x="0.0" y="58" width="414" height="750"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lqZ-78-7Db" firstAttribute="leading" secondItem="XVh-QT-z2X" secondAttribute="trailing" constant="20" id="Ky6-ag-ZE7"/>
+                            <constraint firstItem="mwF-Td-lP5" firstAttribute="trailing" secondItem="lqZ-78-7Db" secondAttribute="trailing" constant="20" id="VzJ-YH-Djc"/>
+                            <constraint firstItem="rcl-bH-5cC" firstAttribute="leading" secondItem="mwF-Td-lP5" secondAttribute="leading" id="WNm-LZ-ifn"/>
+                            <constraint firstItem="rcl-bH-5cC" firstAttribute="bottom" secondItem="mwF-Td-lP5" secondAttribute="bottom" id="ZEL-n9-adY"/>
+                            <constraint firstItem="XVh-QT-z2X" firstAttribute="top" secondItem="mwF-Td-lP5" secondAttribute="top" constant="20" id="ZkF-Bz-6xq"/>
+                            <constraint firstItem="rcl-bH-5cC" firstAttribute="top" secondItem="XVh-QT-z2X" secondAttribute="bottom" constant="8" id="kQr-ve-KTD"/>
+                            <constraint firstItem="XVh-QT-z2X" firstAttribute="leading" secondItem="mwF-Td-lP5" secondAttribute="leading" constant="20" id="li0-X8-7OA"/>
+                            <constraint firstItem="mwF-Td-lP5" firstAttribute="trailing" secondItem="rcl-bH-5cC" secondAttribute="trailing" id="wXh-Hk-9k1"/>
+                            <constraint firstItem="lqZ-78-7Db" firstAttribute="top" secondItem="mwF-Td-lP5" secondAttribute="top" constant="20" id="zsS-bY-n7Q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mwF-Td-lP5"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hH9-0l-EBD"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="lqZ-78-7Db" id="oZ9-9e-sJ4"/>
+                        <outlet property="pdfView" destination="rcl-bH-5cC" id="nf7-R2-P3b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U2M-Dq-cnD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1928.985507246377" y="907.36607142857133"/>
         </scene>
     </scenes>
     <resources>

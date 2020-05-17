@@ -1,30 +1,30 @@
 //
-//  PhotoViewController.swift
+//  TextViewController.swift
 //  CatInABox
 //
-//  Created by MG on 14.05.2020.
+//  Created by MG on 17.05.2020.
 //  Copyright © 2020 MG. All rights reserved.
 //
 
 import UIKit
+import WebKit
 import SwiftyDropbox
-import MessageUI
+import PDFKit
 
-class PhotoViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class TextViewController: UIViewController {
     
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
-    var filename: String?
+    @IBOutlet weak var pdfView: PDFView!
     
-    @IBAction private func sendByEmail(_ sender: UIButton) {
+    @IBAction func sendByEmail(_ sender: UIButton) {
     }
+    
+    var filename: String?
     
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.isHidden = false
         nameLabel.text = filename
         
         if let filename = self.filename, let client = DropboxClientsManager.authorizedClient {
@@ -38,18 +38,22 @@ class PhotoViewController: UIViewController, MFMailComposeViewControllerDelegate
                 return directoryURL.appendingPathComponent(pathComponent)
             }
             
-            client.files.getThumbnail(path: "/\(filename)", format: .png, size: .w1024h768, destination: destination).response { response, error in
-                if let (_, url) = response, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+            client.files.getPreview(path: "/\(filename)", destination: destination).response { (response, error) in
+                if let (_, url) = response {
                     
-                    self.imageView.image = image
-                    self.activityIndicator.isHidden = true
+                    let pdfDoc = PDFDocument(url: url)
+                    
+                    self.pdfView.displayMode = .singlePageContinuous
+                    self.pdfView.autoScales = true
+                    self.pdfView.displayDirection = .vertical
+                    self.pdfView.document = pdfDoc
                     
                 } else if let error = error {
-                    print("Error downloading image from Dropbox: \(error)")
+                    print("Error downloading text from Dropbox \(error)")
                 }
             }
         }
+        
     }
-    
-}
 
+}

@@ -52,7 +52,7 @@ class FilesTableViewController: UITableViewController {
                 cell.imageCell?.image =  #imageLiteral(resourceName: "AudioIcon.png")
             } else if entry.name.hasSuffix(".mp4") {
                 cell.imageCell?.image =  #imageLiteral(resourceName: "VideoIcon.jpg")
-            } else if entry.name.hasSuffix(".pdf") || entry.name.hasSuffix(".txt") {
+            } else if entry.name.hasSuffix(".pdf") || entry.name.hasSuffix(".docx") {
                 cell.imageCell?.image =  #imageLiteral(resourceName: "TextIcon.png")
             } else {
                 cell.imageCell?.image =  #imageLiteral(resourceName: "CatsAndMoon.jpg")
@@ -64,7 +64,11 @@ class FilesTableViewController: UITableViewController {
     //MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? PhotoViewController, let entry = selectedEntry {
+        guard let entry = selectedEntry else { return }
+        
+        if let vc = segue.destination as? PhotoViewController {
+            vc.filename = entry.name
+        } else if let vc = segue.destination as? TextViewController {
             vc.filename = entry.name
         }
     }
@@ -81,6 +85,10 @@ extension FilesTableViewController {
         
         if entry.name.hasSuffix(".jpg") || entry.name.hasSuffix(".png") {
             self.performSegue(withIdentifier: "ShowImage", sender: nil)
+        }
+        
+        if entry.name.hasSuffix(".pdf") || entry.name.hasSuffix(".docx") {
+            self.performSegue(withIdentifier: "ShowText", sender: nil)
         }
         
     }
