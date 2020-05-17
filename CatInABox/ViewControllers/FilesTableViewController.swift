@@ -13,12 +13,13 @@ class FilesTableViewController: UITableViewController {
     
     private var entries: [Files.Metadata]?
     private var selectedEntry: Files.Metadata?
+    private var path: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let client = DropboxClientsManager.authorizedClient
-        client?.files.listFolder(path: "").response { (response, error) in
+        client?.files.listFolder(path: path ?? "").response { (response, error) in
             guard let result = response else { return }
             self.entries = result.entries
             self.tableView.reloadData()
@@ -66,7 +67,9 @@ class FilesTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let entry = selectedEntry else { return }
         
-        if let vc = segue.destination as? PhotoViewController {
+        if let vc = segue.destination as? FilesTableViewController {
+            vc.path = entry.pathDisplay
+        } else if let vc = segue.destination as? PhotoViewController {
             vc.filename = entry.name
         } else if let vc = segue.destination as? TextViewController {
             vc.filename = entry.name
@@ -82,6 +85,10 @@ extension FilesTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let entry = entries?[indexPath.row] else { return }
         selectedEntry = entry
+        
+        if entry is Files.FolderMetadata {
+            self.performSegue(withIdentifier: "DeeperIntoTheFolder", sender: nil)
+        }
         
         if entry.name.hasSuffix(".jpg") || entry.name.hasSuffix(".png") {
             self.performSegue(withIdentifier: "ShowImage", sender: nil)
