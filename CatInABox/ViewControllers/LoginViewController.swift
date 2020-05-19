@@ -27,9 +27,6 @@ class LoginViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         
         if DropboxClientsManager.authorizedClient != nil {
-//            let nav = UINavigationController(rootViewController: FilesTableViewController())
-//            nav.modalPresentationStyle = .fullScreen
-//            self.present(nav, animated: false)
             dismiss(animated: true, completion: nil)
         }
     }
