@@ -19,7 +19,9 @@ class FilesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         let client = DropboxClientsManager.authorizedClient
         client?.files.listFolder(path: path ?? "").response { (response, error) in
             guard let result = response else { return }
