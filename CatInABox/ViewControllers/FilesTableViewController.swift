@@ -14,6 +14,8 @@ class FilesTableViewController: UITableViewController {
     private var entries: [Files.Metadata]?
     private var selectedEntry: Files.Metadata?
     private var path: String?
+    
+    //MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,24 +43,8 @@ class FilesTableViewController: UITableViewController {
         cell.nameLabel.text = entry.name
         cell.lastModifiedDateLabel?.text = entrieModel.lastModifiedDate
 
-        if entry is Files.FolderMetadata {
-            cell.imageCell?.image =  #imageLiteral(resourceName: "FolderIcon.png")
-        }
-
-        if entry is Files.FileMetadata {
-
-            if entry.name.hasSuffix(".jpg") || entry.name.hasSuffix(".png") || entry.name.hasSuffix(".jpeg") {
-                cell.imageCell?.image =  #imageLiteral(resourceName: "ImageIcon.png")
-            } else if entry.name.hasSuffix(".mp3") {
-                cell.imageCell?.image =  #imageLiteral(resourceName: "AudioIcon.png")
-            } else if entry.name.hasSuffix(".mp4") {
-                cell.imageCell?.image =  #imageLiteral(resourceName: "VideoIcon.jpg")
-            } else if entry.name.hasSuffix(".pdf") || entry.name.hasSuffix(".docx") {
-                cell.imageCell?.image =  #imageLiteral(resourceName: "TextIcon.png")
-            } else {
-                cell.imageCell?.image =  #imageLiteral(resourceName: "CatsAndMoon.jpg")
-            }
-        }
+        cell.imageCell.image = setImage(entry: entry)
+        
         return cell
     }
     
@@ -100,8 +86,30 @@ extension FilesTableViewController {
         } else if entry.name.hasSuffix(".mp4") || entry.name.hasSuffix(".mp3") {
             self.performSegue(withIdentifier: "ShowMedia", sender: nil)
             
-        }
+        } 
+    }
+    
+}
+
+//MARK: - Private
+
+private extension FilesTableViewController {
+    
+    func setImage(entry: Files.Metadata) -> UIImage {
         
+        if entry is Files.FolderMetadata {
+            return #imageLiteral(resourceName: "FolderIcon.png")
+        } else if entry.name.hasSuffix(".jpg") || entry.name.hasSuffix(".png") || entry.name.hasSuffix(".jpeg") {
+            return #imageLiteral(resourceName: "ImageIcon.png")
+        } else if entry.name.hasSuffix(".mp3") {
+            return #imageLiteral(resourceName: "AudioIcon.png")
+        } else if entry.name.hasSuffix(".mp4") {
+            return #imageLiteral(resourceName: "VideoIcon.jpg")
+        } else if entry.name.hasSuffix(".pdf") || entry.name.hasSuffix(".docx") {
+            return #imageLiteral(resourceName: "TextIcon.png")
+        } else {
+            return #imageLiteral(resourceName: "CatsAndMoon.jpg")
+        }
     }
     
 }

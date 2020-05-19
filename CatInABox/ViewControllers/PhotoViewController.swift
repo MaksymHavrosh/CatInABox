@@ -8,16 +8,19 @@
 
 import UIKit
 import SwiftyDropbox
-import MessageUI
 
-class PhotoViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class PhotoViewController: MailViewController {
     
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
+    
     var filename: String?
+    var url: URL?
     
     @IBAction private func sendByEmail(_ sender: UIButton) {
+        guard let filename = filename, let url = url else { return }
+        showMailVC(filename: filename, url: url)
     }
     
     //MARK: - Lifecycle
@@ -27,29 +30,27 @@ class PhotoViewController: UIViewController, MFMailComposeViewControllerDelegate
         activityIndicator.isHidden = false
         nameLabel.text = filename
         
-        if let filename = self.filename, let client = DropboxClientsManager.authorizedClient {
+        getImage()
+    } 
+}
+
+//MARK: - Private
+
+private extension PhotoViewController {
+    
+    func getImage() {
+        guard let filename = self.filename, let client = DropboxClientsManager.authorizedClient else { return }
+        client.files.getTemporaryLink(path: "\(filename)").response { response, error in
             
-            let destination : (URL, HTTPURLResponse) -> URL = { temporaryURL, response in
-                let fileManager = FileManager.default
-                let directoryURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            if let response = response, let url = URL(string: response.link), let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                self.url = url
+                self.imageView.image = image
+                self.activityIndicator.isHidden = true
                 
-                let UUID = Foundation.UUID().uuidString
-                let pathComponent = "\(UUID)-\(String(describing: response.suggestedFilename))"
-                return directoryURL.appendingPathComponent(pathComponent)
-            }
-            
-            client.files.getThumbnail(path: "\(filename)", format: .png, size: .w1024h768, destination: destination).response { response, error in
-                if let (_, url) = response, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                    
-                    self.imageView.image = image
-                    self.activityIndicator.isHidden = true
-                    
-                } else if let error = error {
-                    print("Error downloading image from Dropbox: \(error)")
-                }
+            } else if let error = error {
+                print("Error downloading image from Dropbox: \(error)")
             }
         }
     }
-    
 }
 

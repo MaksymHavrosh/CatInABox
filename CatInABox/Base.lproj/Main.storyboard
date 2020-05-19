@@ -67,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUL-t5-DbL">
-                                <rect key="frame" x="20" y="20" width="250" height="30"/>
+                                <rect key="frame" x="20" y="20" width="108" height="30"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title=" Send​​ by​ ​email "/>
@@ -77,7 +77,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="88q-DZ-lzo">
-                                <rect key="frame" x="290" y="20" width="104" height="30"/>
+                                <rect key="frame" x="136" y="20" width="258" height="30"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -97,12 +97,13 @@
                             <constraint firstItem="Dow-6D-0Gy" firstAttribute="leading" secondItem="wVg-Sr-EHc" secondAttribute="leading" id="2XA-fm-xsa"/>
                             <constraint firstItem="Dow-6D-0Gy" firstAttribute="top" secondItem="wVg-Sr-EHc" secondAttribute="top" constant="58" id="8gW-vw-UXE"/>
                             <constraint firstItem="Dow-6D-0Gy" firstAttribute="top" secondItem="88q-DZ-lzo" secondAttribute="bottom" constant="8" id="9vO-SC-Oob"/>
+                            <constraint firstItem="88q-DZ-lzo" firstAttribute="leading" secondItem="wVg-Sr-EHc" secondAttribute="leading" constant="136" id="C4S-Op-qtY"/>
                             <constraint firstItem="88q-DZ-lzo" firstAttribute="top" secondItem="wVg-Sr-EHc" secondAttribute="top" constant="20" id="DXl-i9-3ht"/>
                             <constraint firstItem="PUL-t5-DbL" firstAttribute="leading" secondItem="wVg-Sr-EHc" secondAttribute="leading" constant="20" id="GRH-f5-gaX"/>
                             <constraint firstItem="Dow-6D-0Gy" firstAttribute="top" secondItem="PUL-t5-DbL" secondAttribute="bottom" constant="8" id="HJt-5R-VXu"/>
                             <constraint firstItem="wVg-Sr-EHc" firstAttribute="trailing" secondItem="88q-DZ-lzo" secondAttribute="trailing" constant="20" id="HY0-Mc-mMp"/>
+                            <constraint firstItem="88q-DZ-lzo" firstAttribute="leading" secondItem="PUL-t5-DbL" secondAttribute="trailing" constant="8" id="IzM-4V-Skr"/>
                             <constraint firstItem="wVg-Sr-EHc" firstAttribute="trailing" secondItem="Dow-6D-0Gy" secondAttribute="trailing" id="Jwz-cc-UWB"/>
-                            <constraint firstItem="88q-DZ-lzo" firstAttribute="leading" secondItem="PUL-t5-DbL" secondAttribute="trailing" constant="20" id="Vvg-5T-ga8"/>
                             <constraint firstItem="PUL-t5-DbL" firstAttribute="top" secondItem="wVg-Sr-EHc" secondAttribute="top" constant="20" id="d4V-cS-Zrn"/>
                             <constraint firstItem="wVg-Sr-EHc" firstAttribute="bottom" secondItem="Dow-6D-0Gy" secondAttribute="bottom" id="eX3-uk-4bN"/>
                         </constraints>
@@ -217,11 +218,8 @@
                                 <color key="color" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYH-1w-hMr">
-                                <rect key="frame" x="20" y="20" width="130" height="30"/>
+                                <rect key="frame" x="20" y="20" width="108" height="30"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="bHU-PT-dWp"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title=" Send​​ by​ ​email "/>
                                 <connections>
@@ -229,7 +227,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="ki6-a2-h9O">
-                                <rect key="frame" x="170" y="20" width="224" height="30"/>
+                                <rect key="frame" x="136" y="20" width="258" height="30"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -242,13 +240,14 @@
                             <constraint firstItem="Tz4-bu-pVK" firstAttribute="centerX" secondItem="21d-QY-i0F" secondAttribute="centerX" id="8KO-Xd-EDd"/>
                             <constraint firstItem="dUl-yp-Ehq" firstAttribute="bottom" secondItem="21d-QY-i0F" secondAttribute="bottom" constant="8" id="Bnh-3y-auK"/>
                             <constraint firstItem="21d-QY-i0F" firstAttribute="leading" secondItem="dUl-yp-Ehq" secondAttribute="leading" id="DPk-MQ-tsb"/>
-                            <constraint firstItem="ki6-a2-h9O" firstAttribute="leading" secondItem="XYH-1w-hMr" secondAttribute="trailing" constant="20" id="Hhq-MI-LoE"/>
                             <constraint firstItem="21d-QY-i0F" firstAttribute="top" secondItem="ki6-a2-h9O" secondAttribute="bottom" constant="8" id="K9i-vW-bov"/>
                             <constraint firstItem="Tz4-bu-pVK" firstAttribute="centerY" secondItem="21d-QY-i0F" secondAttribute="centerY" id="UTM-b3-C2U"/>
+                            <constraint firstItem="ki6-a2-h9O" firstAttribute="leading" secondItem="dUl-yp-Ehq" secondAttribute="leading" constant="136" id="Xdy-Zg-yco"/>
                             <constraint firstItem="21d-QY-i0F" firstAttribute="top" secondItem="XYH-1w-hMr" secondAttribute="bottom" constant="8" id="YJE-9M-4wg"/>
                             <constraint firstItem="XYH-1w-hMr" firstAttribute="top" secondItem="dUl-yp-Ehq" secondAttribute="top" constant="20" id="bgv-gl-vCF"/>
                             <constraint firstItem="21d-QY-i0F" firstAttribute="trailing" secondItem="dUl-yp-Ehq" secondAttribute="trailing" id="cBk-Wi-erd"/>
                             <constraint firstItem="ki6-a2-h9O" firstAttribute="top" secondItem="dUl-yp-Ehq" secondAttribute="top" constant="20" id="dO3-Cl-PZR"/>
+                            <constraint firstItem="ki6-a2-h9O" firstAttribute="leading" secondItem="XYH-1w-hMr" secondAttribute="trailing" constant="8" id="e1G-H1-STy"/>
                             <constraint firstItem="dUl-yp-Ehq" firstAttribute="trailing" secondItem="ki6-a2-h9O" secondAttribute="trailing" constant="20" id="h7Q-tN-c1w"/>
                             <constraint firstItem="XYH-1w-hMr" firstAttribute="leading" secondItem="dUl-yp-Ehq" secondAttribute="leading" constant="20" id="s63-33-AJF"/>
                         </constraints>
@@ -290,7 +289,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVh-QT-z2X">
-                                <rect key="frame" x="20" y="20" width="250" height="30"/>
+                                <rect key="frame" x="20" y="20" width="108" height="30"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title=" Send​​ by​ ​email "/>
@@ -300,7 +299,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="lqZ-78-7Db">
-                                <rect key="frame" x="290" y="20" width="104" height="24"/>
+                                <rect key="frame" x="136" y="20" width="258" height="24"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -313,7 +312,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="lqZ-78-7Db" firstAttribute="leading" secondItem="XVh-QT-z2X" secondAttribute="trailing" constant="20" id="Ky6-ag-ZE7"/>
+                            <constraint firstItem="lqZ-78-7Db" firstAttribute="leading" secondItem="mwF-Td-lP5" secondAttribute="leading" constant="136" id="05h-Rf-Kz2"/>
+                            <constraint firstItem="lqZ-78-7Db" firstAttribute="leading" secondItem="XVh-QT-z2X" secondAttribute="trailing" constant="8" id="8TA-uz-Pao"/>
                             <constraint firstItem="mwF-Td-lP5" firstAttribute="trailing" secondItem="lqZ-78-7Db" secondAttribute="trailing" constant="20" id="VzJ-YH-Djc"/>
                             <constraint firstItem="rcl-bH-5cC" firstAttribute="leading" secondItem="mwF-Td-lP5" secondAttribute="leading" id="WNm-LZ-ifn"/>
                             <constraint firstItem="rcl-bH-5cC" firstAttribute="bottom" secondItem="mwF-Td-lP5" secondAttribute="bottom" id="ZEL-n9-adY"/>
