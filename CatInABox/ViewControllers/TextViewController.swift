@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import WebKit
-import SwiftyDropbox
 import PDFKit
+import SwiftyDropbox
 
 class TextViewController: UIViewController {
     
@@ -38,7 +37,7 @@ class TextViewController: UIViewController {
                 return directoryURL.appendingPathComponent(pathComponent)
             }
             
-            client.files.getPreview(path: "/\(filename)", destination: destination).response { (response, error) in
+            client.files.getPreview(path: "\(filename)", destination: destination).response { (response, error) in
                 if let (_, url) = response {
                     
                     let pdfDoc = PDFDocument(url: url)

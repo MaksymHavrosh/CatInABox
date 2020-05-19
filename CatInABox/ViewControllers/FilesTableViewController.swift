@@ -47,7 +47,7 @@ class FilesTableViewController: UITableViewController {
 
         if entry is Files.FileMetadata {
 
-            if entry.name.hasSuffix(".jpg") || entry.name.hasSuffix(".png") {
+            if entry.name.hasSuffix(".jpg") || entry.name.hasSuffix(".png") || entry.name.hasSuffix(".jpeg") {
                 cell.imageCell?.image =  #imageLiteral(resourceName: "ImageIcon.png")
             } else if entry.name.hasSuffix(".mp3") {
                 cell.imageCell?.image =  #imageLiteral(resourceName: "AudioIcon.png")
@@ -68,11 +68,13 @@ class FilesTableViewController: UITableViewController {
         guard let entry = selectedEntry else { return }
         
         if let vc = segue.destination as? FilesTableViewController {
-            vc.path = entry.pathDisplay
+            vc.path = entry.pathLower
         } else if let vc = segue.destination as? PhotoViewController {
-            vc.filename = entry.name
+            vc.filename = entry.pathLower
         } else if let vc = segue.destination as? TextViewController {
-            vc.filename = entry.name
+            vc.filename = entry.pathLower
+        } else if let vc = segue.destination as? PlayerViewController {
+            vc.filename = entry.pathLower
         }
     }
 
@@ -88,14 +90,16 @@ extension FilesTableViewController {
         
         if entry is Files.FolderMetadata {
             self.performSegue(withIdentifier: "DeeperIntoTheFolder", sender: nil)
-        }
-        
-        if entry.name.hasSuffix(".jpg") || entry.name.hasSuffix(".png") {
+            
+        } else if entry.name.hasSuffix(".jpg") || entry.name.hasSuffix(".png") || entry.name.hasSuffix(".jpeg") {
             self.performSegue(withIdentifier: "ShowImage", sender: nil)
-        }
-        
-        if entry.name.hasSuffix(".pdf") || entry.name.hasSuffix(".docx") {
+            
+        } else if entry.name.hasSuffix(".docx") {
             self.performSegue(withIdentifier: "ShowText", sender: nil)
+            
+        } else if entry.name.hasSuffix(".mp4") || entry.name.hasSuffix(".mp3") {
+            self.performSegue(withIdentifier: "ShowMedia", sender: nil)
+            
         }
         
     }

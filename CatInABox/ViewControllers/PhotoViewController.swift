@@ -38,7 +38,7 @@ class PhotoViewController: UIViewController, MFMailComposeViewControllerDelegate
                 return directoryURL.appendingPathComponent(pathComponent)
             }
             
-            client.files.getThumbnail(path: "/\(filename)", format: .png, size: .w1024h768, destination: destination).response { response, error in
+            client.files.getThumbnail(path: "\(filename)", format: .png, size: .w1024h768, destination: destination).response { response, error in
                 if let (_, url) = response, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                     
                     self.imageView.image = image
