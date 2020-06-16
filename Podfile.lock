@@ -1,0 +1,25 @@
+PODS:
+  - Alamofire (4.8.2)
+  - AlamofireImage (3.5.2):
+    - Alamofire (~> 4.8)
+  - SwiftyDropbox (5.1.0):
+    - Alamofire (~> 4.8.2)
+
+DEPENDENCIES:
+  - AlamofireImage
+  - SwiftyDropbox
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireImage
+    - SwiftyDropbox
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
+  SwiftyDropbox: 7ca4961e0340c62c8d6d1ece91d67badfe4c0380
+
+PODFILE CHECKSUM: 05820e1956f89eb65769afb544bd9b8837c66e5c
+
+COCOAPODS: 1.9.1

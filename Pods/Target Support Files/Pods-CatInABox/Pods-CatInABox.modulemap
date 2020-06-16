@@ -1,0 +1,6 @@
+framework module Pods_CatInABox {
+  umbrella header "Pods-CatInABox-umbrella.h"
+
+  export *
+  module * { export * }
+}
